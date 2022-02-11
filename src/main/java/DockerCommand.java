@@ -3,8 +3,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import org.apache.maven.plugin.AbstractMojo;
-import org.apache.maven.plugin.MojoExecutionException;
-import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.Parameter;
 
 public abstract class DockerCommand extends AbstractMojo {
@@ -16,7 +14,7 @@ public abstract class DockerCommand extends AbstractMojo {
 		return this.containerName;
 	}
 
-	public void runCommand(String command) throws MojoExecutionException, MojoFailureException {
+	public void runCommand(String command) {
 
 		ProcessBuilder processBuilder = new ProcessBuilder(command.split(" "));
 		try {
